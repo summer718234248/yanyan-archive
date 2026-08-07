@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>琰琰的生活档案 · 把日子收进光里</title>
+<meta name="description" content="照片、文字、路过的城市，以及一些不想忘记的瞬间。琰琰的私人数字生活档案馆。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F7F3ED'/%3E%3Ccircle cx='32' cy='30' r='13' fill='%23D8B5B4'/%3E%3Crect x='14' y='44' width='36' height='4' rx='2' fill='%23242321'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#app">跳到主要内容</a>
+<div id="grain" aria-hidden="true"></div>
+
+<header id="topbar">
+  <a class="brand" href="#/home" data-nav="home" aria-label="回到首页">
+    <span class="zh">琰琰的档案</span><span class="en">YAN'S ARCHIVE</span>
+  </a>
+  <nav id="topnav" aria-label="主导航">
+    <a href="#/home" data-nav="home">首页</a>
+    <a href="#/archive" data-nav="archive">照片档案</a>
+    <a href="#/journal" data-nav="journal">日记</a>
+    <a href="#/places" data-nav="places">地点</a>
+  </nav>
+  <button class="studio-btn" onclick="location.hash='#/studio'">＋ 上传照片</button>
+</header>
+
+<main id="app"></main>
+
+<nav id="mobilenav" aria-label="移动端导航">
+  <a href="#/home" data-nav="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6h-6v6H4z"/></svg>首页</a>
+  <a href="#/archive" data-nav="archive"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="9"/><rect x="13" y="4" width="7" height="5"/><rect x="13" y="11" width="7" height="9"/><rect x="4" y="15" width="7" height="5"/></svg>档案</a>
+  <a href="#/studio" data-nav="studio"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l2-3h4l2 3"/><circle cx="12" cy="13" r="3.5"/></svg>工作台</a>
+  <a href="#/journal" data-nav="journal"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/></svg>日记</a>
+  <a href="#/places" data-nav="places"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>地点</a>
+</nav>
+
+<div id="toasts" role="status" aria-live="polite"></div>
+
+<script src="js/seed.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
