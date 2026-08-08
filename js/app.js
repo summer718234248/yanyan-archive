@@ -136,7 +136,7 @@
       S.FRAMES.map(f => '<button data-fr="' + f.id + '" class="' + (f.id === p.frame ? 'on' : '') + '">' + f.name + '</button>').join('') + '</div></div>' +
       '  <div class="pd-block"><h4>滤镜 / Filter</h4><p class="mono" style="margin:0">' + C.esc((S.FILTERS.find(f => f.id === p.filter) || {}).name || 'Original') + ' · ' + (p.visibility === 'private' ? '仅自己可见' : '公开') + '</p></div>' +
       (rel.length ? '<div class="pd-block"><h4>相关记录 / Related</h4><div class="rel-row">' +
-        rel.map(r => '<a href="#/photo/' + r.id + '" title="' + C.esc(r.title) + '"><img src="' + r.src + '" alt="' + C.esc(r.title) + '" loading="lazy"></a>').join('') + '</div></div>' : '') +
+        rel.map(r => '<a href="#/photo/' + r.id + '" title="' + C.esc(r.title) + '"><img src="' + r.src + '" alt="' + C.esc(r.title) + '" decoding="async"></a>').join('') + '</div></div>' : '') +
       '  <div class="pd-nav">' +
       (prev ? '<a class="btn small" href="#/photo/' + prev.id + '">← 前一张</a>' : '<span></span>') +
       (next ? '<a class="btn small" href="#/photo/' + next.id + '">后一张 →</a>' : '<span></span>') +
@@ -355,7 +355,7 @@
           const phs = C.DB.photosOfCity(pl.city);
           return '<div class="tl-item rv"><span class="when">' + C.esc(pl.dates) + ' · ' + C.esc(pl.country) + '</span>' +
             '<h3>' + C.esc(pl.city) + '</h3><p class="mem">' + C.esc(pl.memory) + '</p>' +
-            (phs.length ? '<div class="phs">' + phs.slice(0, 3).map(p => '<a href="#/photo/' + p.id + '"><img src="' + p.src + '" alt="' + C.esc(p.title) + '" loading="lazy"></a>').join('') + '</div>' : '') +
+            (phs.length ? '<div class="phs">' + phs.slice(0, 3).map(p => '<a href="#/photo/' + p.id + '"><img src="' + p.src + '" alt="' + C.esc(p.title) + '" decoding="async"></a>').join('') + '</div>' : '') +
             '</div>';
         }).join('')).join('') + '</div></div>';
       C.watchReveal(view);

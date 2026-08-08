@@ -93,7 +93,7 @@ window.Core = (function () {
     return '<figure class="pcard ' + p.frame + '" style="--tilt:' + tilt + 'deg;' + varsStyle(filterVars(f, p.fx)) + '"' +
       (opts.style ? ' style="' + opts.style + '"' : '') + ' data-id="' + p.id + '">' +
       '<a class="plink" href="' + href + '" aria-label="' + esc(p.title) + '，查看照片详情">' +
-      '<span class="pimg"><img loading="lazy" src="' + p.src + '" alt="' + esc(p.title) + '，拍摄于' + esc(p.city) + '" ' +
+      '<span class="pimg"><img src="' + p.src + '" alt="' + esc(p.title) + '，拍摄于' + esc(p.city) + '" decoding="async" ' +
       'onload="this.classList.add(\'ld\')" onerror="this.parentNode.innerHTML=\'<span class=ph-miss>照片暂时走丢了</span>\'">' +
       '<span class="lay grain"></span><span class="lay vig"></span><span class="lay leak"></span></span>' + cap + '</a>' + meta + '</figure>';
   }
@@ -127,10 +127,12 @@ window.Core = (function () {
   /* ---------------- 滚动显现 ---------------- */
   let io;
   function watchReveal(root) {
+    const els = $$('.rv', root || document);
+    if (typeof IntersectionObserver === 'undefined') { els.forEach(el => el.classList.add('in')); return; }
     if (!io) io = new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     }), { threshold: .12 });
-    $$('.rv', root || document).forEach(el => io.observe(el));
+    els.forEach(el => io.observe(el));
   }
 
   /* ---------------- 路由 ---------------- */
